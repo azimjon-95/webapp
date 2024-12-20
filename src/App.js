@@ -4,7 +4,11 @@ function App() {
   useEffect(() => {
     // Telegram Web App API-ni o‘rnating
     if (window.Telegram.WebApp) {
-      window.Telegram.WebApp.expand(); // To‘liq ekran qilish
+      // Boshlanishda faqat yarmini oching
+      window.Telegram.WebApp.setHeaderColor("bg_color"); // Foydalanuvchi interfeysini moslash
+      window.Telegram.WebApp.expand({
+        expandToFullScreen: false, // To‘liq ekran rejimini o‘chirish
+      });
     }
   }, []);
 
