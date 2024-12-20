@@ -3,12 +3,14 @@ import { useEffect } from 'react';
 function App() {
   useEffect(() => {
     // Telegram Web App API-ni o‘rnating
-    if (window.Telegram.WebApp) {
-      // Boshlanishda faqat yarmini oching
-      window.Telegram.WebApp.setHeaderColor("bg_color"); // Foydalanuvchi interfeysini moslash
+    if (window.Telegram && window.Telegram.WebApp) {
+      // Boshlanishda yarmini ochish
+      window.Telegram.WebApp.setHeaderColor("red"); // Foydalanuvchi interfeysini moslash
       window.Telegram.WebApp.expand({
         expandToFullScreen: false, // To‘liq ekran rejimini o‘chirish
       });
+    } else {
+      console.warn("Telegram WebApp API mavjud emas!");
     }
   }, []);
 
